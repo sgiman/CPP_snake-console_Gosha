@@ -39,7 +39,7 @@ void Setup() {
 //-------- ќтрисовка игровой карты --------
 void Draw() {
 
-	system("cls");									// очистить терминал
+	system("cls");										// очистить терминал
 	bool print = false;
 
 	for (int i = 0; i < width + 1; i++)
@@ -114,7 +114,7 @@ void Logic() {
 	tailX[0] = x;
 	tailY[0] = y;
 
-	for (int i = 1; i < nTail; i++) // наращивание хвоста змейки
+	for (int i = 1; i < nTail; i++)	// наращивание хвоста змейки
 	{
 		prev2X = tailX[i];
 		prev2Y = tailY[i];
@@ -178,6 +178,6 @@ int main()
 		Input();			// ввод комманд
 		Logic();			// логика игры
 	}
-
 	return 0;
 }
+/*=============== END ===============*/
