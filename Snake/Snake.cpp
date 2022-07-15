@@ -1,8 +1,9 @@
-﻿// 004_Snake_Final.cpp: определяет точку входа для консольного приложения.
-// SNAKE | FINAL
+﻿// -------------------------------------------------------------------------------------
+// SNAKE | FINAL (for only Console)
 // Создание игры на C++ / Змейка
 // https://www.youtube.com/watch?v=6qaAZTwemXY&list=PL0lO_mIqDDFXqS9ww1Xu8dZ-0zFQYFaGr
 // GOSHA & SGIMAN @ 2022
+// -------------------------------------------------------------------------------------
 
 #include "stdafx.h"
 
@@ -172,10 +173,10 @@ int main()
 	Setup();
 	while (!gameOver)
 	{
-		Sleep(sleep_time); // задержка потока программы на заданный ранее интервал
-		Draw();
-		Input();
-		Logic();
+		Sleep(sleep_time);	// задержка потока программы на заданный ранее интервал
+		Draw();				// отрисовка игровой карты 	
+		Input();			// ввод комманд
+		Logic();			// логика игры
 	}
 
 	return 0;
