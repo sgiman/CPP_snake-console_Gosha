@@ -2,6 +2,8 @@
 // SNAKE | FINAL (for only Console)
 // Создание игры на C++ / Змейка
 // https://www.youtube.com/watch?v=6qaAZTwemXY&list=PL0lO_mIqDDFXqS9ww1Xu8dZ-0zFQYFaGr
+//--------------------------------------------------------------------------------------
+// Visual Studio 2019
 // GOSHA & SGIMAN @ 2022
 // -------------------------------------------------------------------------------------
 
