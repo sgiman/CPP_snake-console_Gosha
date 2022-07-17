@@ -20,10 +20,10 @@ const int height = 20;
 int x, y, fruitX, fruitY, score;
 enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };	// направление движени¤
 eDirection dir;
-int tailX[100], tailY[100];								// длина хвоста змейки
-int nTail;												// кол-во элементов хвоста 
+int tailX[100], tailY[100];				// длина хвоста змейки
+int nTail;						// кол-во элементов хвоста 
 
-int sleep_time = 100;									// переменная частоты кадров 
+int sleep_time = 100;					// переменная частоты кадров 
 
 //-------- Настройка параметров --------
 void Setup() {
@@ -39,44 +39,44 @@ void Setup() {
 //-------- ќтрисовка игровой карты --------
 void Draw() {
 
-	system("cls");										// очистить терминал
+	system("cls");					// очистить терминал
 	bool print = false;
 
 	for (int i = 0; i < width + 1; i++)
-		cout << "#";									// верхняя "граница" (строка)
-	cout << endl;										// конец строки 
+		cout << "#";				// верхняя "граница" (строка)
+	cout << endl;					// конец строки 
 
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
 		{
 			if (j == 0 || j == width - 1)
-				cout << "#";							// боковая граница
-			if (i == y && j == x)						// ecли координаты совпадают,	
-				cout << "0";							// тогда змейка "0"
-			else if (i == fruitY && j == fruitX)		// иначе координаты 
-				cout << "F";							// дл¤ фрукта "F"
+				cout << "#";			// боковая граница
+			if (i == y && j == x)			// ecли координаты совпадают,	
+				cout << "0";			// тогда змейка "0"
+			else if (i == fruitY && j == fruitX)	// иначе координаты 
+				cout << "F";			// дл¤ фрукта "F"
 			else
 			{
-				print = false;							// не рисовать хвост
+				print = false;					// не рисовать хвост
 				for (int k = 0; k < nTail; k++)			// наращивание хвоста змейки 
 					if (tailX[k] == j && tailY[k] == i)
 					{
-						print = true;					// рисовать хвост
+						print = true;			// рисовать хвост
 						cout << "o";
 					}
 			}
 
 			if (!print)
-				cout << " ";							// остальное заполнить пробелами 
+				cout << " ";					// остальное заполнить пробелами 
 		}
-		cout << endl;									// конец строки	
+		cout << endl;							// конец строки	
 	}
 
 	for (int i = 0; i < width + 1; i++)
-		cout << "#";									// нижняя "граница" (строка)
+		cout << "#";							// нижняя "граница" (строка)
 
-	cout << endl;										// конец строки 
+	cout << endl;								// конец строки 
 	cout << "Score: " << score << endl;					// общий счет
 }
 
@@ -143,7 +143,7 @@ void Logic() {
 	// if (x > width || x < 0 || y > height || y < 0)	// если змейка за границами игрового поля - выйти из игры 
 	//	gameOver = true;
 	
-	if (x >= width)									// если имеется касание границ - продолжать
+	if (x >= width)						// если имеется касание границ - продолжать
 		x = 0;
 	else if (x < 0)
 		x = width - 2;
@@ -153,16 +153,16 @@ void Logic() {
 	else if (y < 0)
 		y = height - 1;
 
-	for (int i = 0; i < nTail; i++)					// выйти из игры, если змейка съела свой хвост
+	for (int i = 0; i < nTail; i++)				// выйти из игры, если змейка съела свой хвост
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
 
-	if (x == fruitX && y == fruitY)					// если найден фрукт 
+	if (x == fruitX && y == fruitY)				// если найден фрукт 
 	{
-		score += 10;								//	добавтиь очки
-		fruitX = rand() % width;					//	новые координаты дл¤ фрукта
+		score += 10;					// добавтиь очки
+		fruitX = rand() % width;			// новые координаты дл¤ фрукта
 		fruitY = rand() % height;
-		nTail++;									// после поедани¤ фрукта - хвост змейки на единицу больше 
+		nTail++;					// после поедани¤ фрукта - хвост змейки на единицу больше 
 	}
 
 }
@@ -174,9 +174,9 @@ int main()
 	while (!gameOver)
 	{
 		Sleep(sleep_time);	// задержка потока программы на заданный ранее интервал
-		Draw();				// отрисовка игровой карты 	
-		Input();			// ввод комманд
-		Logic();			// логика игры
+		Draw();			// отрисовка игровой карты 	
+		Input();		// ввод комманд
+		Logic();		// логика игры
 	}
 	return 0;
 }
